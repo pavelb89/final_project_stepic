@@ -24,3 +24,9 @@ class ProductPageLocators:
     DESCRIPTION_OF_PRODUCT = (By.CSS_SELECTOR, "#product_description")
     MESSAGE_BASKET_TOTAL = (By.CSS_SELECTOR, ".alert-info .alertinner strong")
     SUCCESS_MESSAGES = (By.CSS_SELECTOR, ".alertinner strong")
+    MSG_PRODUCT_ADD_BASKET = (By.CSS_SELECTOR, ".alert:nth-child(1) .alertinner strong")
+
+
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")

@@ -16,6 +16,10 @@ class ProductPage(BasePage):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGES), \
             "Success message is presented, but should not be"
 
+    def success_message_should_disappear(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGES), \
+            "Success message should disappear, but it didn't happen!"
+
     def check_content_of_basket(self, product_name, product_price):
         # find all messages
         msg_lst = self.browser.find_elements(*ProductPageLocators.SUCCESS_MESSAGES)
