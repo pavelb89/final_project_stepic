@@ -8,7 +8,7 @@ class ProductPage(BasePage):
         product_info = self.get_product_info()
         self.should_be_basket_button()
         # self.should_not_be_success_message()
-        self.go_to_the_basket()
+        self.put_to_basket()
         self.solve_quiz_and_get_code()
         self.check_content_of_basket(*product_info)
 
@@ -43,7 +43,7 @@ class ProductPage(BasePage):
         product_price = self.browser.find_element(*ProductPageLocators.PRICE_OF_PRODUCT).text
         return product_name, product_price
 
-    def go_to_the_basket(self):
+    def put_to_basket(self):
         basket = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         basket.click()
 
