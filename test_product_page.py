@@ -64,3 +64,21 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket_page = BasketPage(browser, browser.current_url)
     basket_page.should_be_no_products_in_basket()
     basket_page.should_be_empty_basket_message()
+
+
+class TestUserAddToBasketFromProductPage:
+    def test_user_cant_see_success_message_after_adding_product_to_basket(self, browser):
+        link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0'
+        page = ProductPage(browser, link)
+        page.open()
+        page.add_product_to_basket()
+        page.should_not_be_success_message()
+
+    @pytest.mark.parametrize('num', [0, 1, 2, 3, 4, 5, 6,
+                                     pytest.param(7, marks=pytest.mark.xfail),
+                                     8, 9])
+    def test_user_can_add_product_to_basket(self, browser, num):
+        link = f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{num}'
+        page = ProductPage(browser, link)
+        page.open()
+        page.add_product_to_basket()

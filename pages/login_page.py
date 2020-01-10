@@ -4,6 +4,9 @@ import re
 
 
 class LoginPage(BasePage):
+    def register_new_user(self, email, password):
+        pass
+
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()
