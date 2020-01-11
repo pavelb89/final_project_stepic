@@ -5,7 +5,13 @@ import re
 
 class LoginPage(BasePage):
     def register_new_user(self, email, password):
-        pass
+        email_input_box = self.browser.find_element(*LoginPageLocators.REG_INPUT_EMAIL)
+        email_input_box.send_keys(email)
+        password_input_box = self.browser.find_element(*LoginPageLocators.REG_INPUT_PASSWORD)
+        password_input_box.send_keys(password)
+        password_repeat_input_box = self.browser.find_element(*LoginPageLocators.REG_INPUT_REPEAT_PASSWORD)
+        password_repeat_input_box.send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REG_SUBMIT).click()
 
     def should_be_login_page(self):
         self.should_be_login_url()
